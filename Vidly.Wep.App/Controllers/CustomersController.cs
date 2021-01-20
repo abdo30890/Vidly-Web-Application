@@ -10,6 +10,7 @@ namespace Vidly.Wep.App.Controllers
 {
     public class CustomersController : Controller
     {
+         
         private ApplicationDbContext _context;
 
         public CustomersController()
@@ -25,7 +26,7 @@ namespace Vidly.Wep.App.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c =>c.MembershipType).ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType);
           
             return View(customers);
         }
@@ -38,6 +39,8 @@ namespace Vidly.Wep.App.Controllers
 
             return View(customer);
         }
+      
+
         
     }
 
