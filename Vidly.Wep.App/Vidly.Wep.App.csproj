@@ -208,6 +208,34 @@
     <Compile Include="Migrations\202101240934081_AddingBirthdate.Designer.cs">
       <DependentUpon>202101240934081_AddingBirthdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101260859417_MovieAddedAndGenre.cs" />
+    <Compile Include="Migrations\202101260859417_MovieAddedAndGenre.Designer.cs">
+      <DependentUpon>202101260859417_MovieAddedAndGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101260912027_Genre.cs" />
+    <Compile Include="Migrations\202101260912027_Genre.Designer.cs">
+      <DependentUpon>202101260912027_Genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101260923571_DataAnno.cs" />
+    <Compile Include="Migrations\202101260923571_DataAnno.Designer.cs">
+      <DependentUpon>202101260923571_DataAnno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101260950391_UpdatingMovies.cs" />
+    <Compile Include="Migrations\202101260950391_UpdatingMovies.Designer.cs">
+      <DependentUpon>202101260950391_UpdatingMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101261000424_Movies.cs" />
+    <Compile Include="Migrations\202101261000424_Movies.Designer.cs">
+      <DependentUpon>202101261000424_Movies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101261002302_UpMovies.cs" />
+    <Compile Include="Migrations\202101261002302_UpMovies.Designer.cs">
+      <DependentUpon>202101261002302_UpMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101261015340_LastUpdated.cs" />
+    <Compile Include="Migrations\202101261015340_LastUpdated.Designer.cs">
+      <DependentUpon>202101261015340_LastUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ConnectionString.cs" />
@@ -284,6 +312,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +354,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101240934081_AddingBirthdate.resx">
       <DependentUpon>202101240934081_AddingBirthdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101260859417_MovieAddedAndGenre.resx">
+      <DependentUpon>202101260859417_MovieAddedAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101260912027_Genre.resx">
+      <DependentUpon>202101260912027_Genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101260923571_DataAnno.resx">
+      <DependentUpon>202101260923571_DataAnno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101260950391_UpdatingMovies.resx">
+      <DependentUpon>202101260950391_UpdatingMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261000424_Movies.resx">
+      <DependentUpon>202101261000424_Movies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261002302_UpMovies.resx">
+      <DependentUpon>202101261002302_UpMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261015340_LastUpdated.resx">
+      <DependentUpon>202101261015340_LastUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
