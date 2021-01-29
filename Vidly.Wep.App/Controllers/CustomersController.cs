@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Wep.App.Models;
+using Vidly.Wep.App.ViewModels;
+
 
 namespace Vidly.Wep.App.Controllers
 {
@@ -23,6 +25,39 @@ namespace Vidly.Wep.App.Controllers
             _context.Dispose();
         }
 
+        public ActionResult NewCustomer()
+        {
+            var membershiptypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershiptypes
+            };
+
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id == 0 )
+            { _context.Customers.Add(customer); }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                {
+                    customerInDb.Name = customer.Name;
+                    customerInDb.BirthDate = customer.BirthDate;
+                    customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                    customerInDb.IsSubscribedToCustomer = customer.IsSubscribedToCustomer;
+                }
+            }
+            
+            _context.SaveChanges();
+            
+            return RedirectToAction("Index","Customers");
+        }
+          
         // GET: Customers
         public ViewResult Index()
         {
@@ -39,9 +74,24 @@ namespace Vidly.Wep.App.Controllers
 
             return View(customer);
         }
-      
 
-        
+
+        public ActionResult Edit(int id)
+        {
+            var editcustomer = _context.Customers.FirstOrDefault(c => c.Id == id);
+            if (editcustomer == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = editcustomer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("NewCustomer",viewModel);
+        }
     }
 
 }
