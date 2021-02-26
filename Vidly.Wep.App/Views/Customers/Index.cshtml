@@ -5,6 +5,10 @@
 }
 
 <h2>Customers</h2>
+
+<input type="button" class="btn btn-primary" value="New Customer" onclick="location.href = '@Url.Action("NewCustomer", "Customers")'" />
+<br/>
+<br/>
 @if (!Model.Any())
 {
     <p>We don't have any customers yet.</p>

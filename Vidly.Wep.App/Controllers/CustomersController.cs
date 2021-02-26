@@ -30,32 +30,49 @@ namespace Vidly.Wep.App.Controllers
             var membershiptypes = _context.MembershipTypes.ToList();
             var viewModel = new NewCustomerViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershiptypes
             };
 
 
-            return View(viewModel);
+            return View("NewCustomer",viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
-            if (customer.Id == 0 )
-            { _context.Customers.Add(customer); }
+            if (!ModelState.IsValid)
+            {
+                var membershiptypes = _context.MembershipTypes.ToList();
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = membershiptypes
+
+                };
+                return View("NewCustomer", viewModel);
+            }
             else
             {
-                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                if (customer.Id == 0)
+                { _context.Customers.Add(customer); }
+                else
                 {
-                    customerInDb.Name = customer.Name;
-                    customerInDb.BirthDate = customer.BirthDate;
-                    customerInDb.MembershipTypeId = customer.MembershipTypeId;
-                    customerInDb.IsSubscribedToCustomer = customer.IsSubscribedToCustomer;
+                    var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                    {
+                        customerInDb.Name = customer.Name;
+                        customerInDb.BirthDate = customer.BirthDate;
+                        customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                        customerInDb.IsSubscribedToCustomer = customer.IsSubscribedToCustomer;
+                    }
                 }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Customers");
             }
-            
-            _context.SaveChanges();
-            
-            return RedirectToAction("Index","Customers");
+           
         }
           
         // GET: Customers

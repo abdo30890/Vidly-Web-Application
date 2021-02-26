@@ -18,6 +18,7 @@ namespace Vidly.Wep.App.Models
 
         public bool IsSubscribedToCustomer { get; set; }
 
+        [AgeValidation18YearOld]
         public DateTime? BirthDate { get; set; }
         
         public MembershipType MembershipType { get; set; }
