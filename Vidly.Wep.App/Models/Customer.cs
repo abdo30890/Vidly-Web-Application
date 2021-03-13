@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Web;
+using Vidly.Wep.App.DTO;
 
 namespace Vidly.Wep.App.Models
 {
@@ -20,7 +21,7 @@ namespace Vidly.Wep.App.Models
 
         [AgeValidation18YearOld]
         public DateTime? BirthDate { get; set; }
-        
+
         public MembershipType MembershipType { get; set; }
 
         [Display(Name = "MemberShip Type")]

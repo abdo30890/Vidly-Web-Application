@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 using Vidly.Wep.App.Models;
 
@@ -21,5 +22,6 @@ namespace Vidly.Wep.App.DTO
         public DateTime? BirthDate { get; set; }
 
         public byte MembershipTypeId { get; set; }
+        public MemberShipTypeDto MembershipType {get; set; }
     }
 }
