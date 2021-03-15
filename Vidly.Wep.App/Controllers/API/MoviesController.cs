@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,11 +23,13 @@ namespace Vidly.Wep.App.Controllers.API
 
         //GET /api/Movies
         [HttpGet]
-        public IHttpActionResult GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
 
-            var list = _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
-            return Ok(list);
+            return _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
         }
 
         //Get /api/movies

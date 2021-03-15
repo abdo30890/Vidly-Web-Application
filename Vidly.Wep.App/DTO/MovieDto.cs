@@ -24,7 +24,10 @@ namespace Vidly.Wep.App.DTO
         [Range(1, 20)]
         public byte NumberInStock { get; set; }
 
+
         [Required]
         public int GenreId { get; set; }
+        public GenreDto Genre { get; set; }
+
     }
 }

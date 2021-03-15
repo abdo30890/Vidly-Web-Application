@@ -7,6 +7,7 @@ using Vidly.Wep.App.Models;
 
 namespace Vidly.Wep.App.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
