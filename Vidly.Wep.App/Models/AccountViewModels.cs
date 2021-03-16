@@ -8,6 +8,11 @@ namespace Vidly.Wep.App.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+
+        [Required]
+        [Display(Name = "Phone")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -82,8 +87,8 @@ namespace Vidly.Wep.App.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "Driving License")]
-        public string DrivingLicense { get; set; }
+        [Display(Name = "Phone")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
